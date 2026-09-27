@@ -22,6 +22,23 @@ pipeline {
             }
         }
 
+        stage('Save WAR Locally') {
+            steps {
+                sh '''
+                    echo "Saving WAR file locally..."
+        
+                    WAR_FILE=$(ls sample-app/target/*.war)
+        
+                    mkdir -p /opt/jenkins-artifacts
+        
+                    cp "$WAR_FILE" /opt/jenkins-artifacts/
+        
+                    echo "WAR saved successfully:"
+                    ls -lh /opt/jenkins-artifacts/
+                '''
+            }
+        }
+
         // stage('Upload to JFrog') {
         //     steps {
         //         withCredentials([usernamePassword(credentialsId: 'jfrog-creds',
