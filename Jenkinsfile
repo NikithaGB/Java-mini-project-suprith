@@ -31,7 +31,7 @@ pipeline {
                         echo "Uploading WAR to JFrog..."
                         WAR_FILE=$(ls sample-app/target/*.war)
                         curl -u $JFROG_USER:$JFROG_PASS -T $WAR_FILE \
-                        "https://triald13vww.jfrog.io/artifactory/api/generic/javarepo/${JOB_NAME}-${BUILD_NUMBER}-sample.war"
+                        "https://triald13vww.jfrog.io/artifactory/javarepo/${JOB_NAME}-${BUILD_NUMBER}-sample.war"
                     '''
                 }
             }
