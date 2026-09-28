@@ -15,6 +15,24 @@ pipeline {
             }
         }
 
+        stage('Check Java and Maven') {
+            steps {
+                sh '''
+                    echo "JAVA_HOME=$JAVA_HOME"
+                    echo "PATH=$PATH"
+        
+                    echo "Java:"
+                    java -version
+        
+                    echo "Javac:"
+                    javac -version
+        
+                    echo "Maven:"
+                    mvn -version
+                '''
+            }
+        }
+
         stage('Build') {
             steps {
                 dir('sample-app') {
