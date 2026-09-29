@@ -56,5 +56,30 @@ pipeline {
                 }
             }
         }
-    }
-}
+        stage('Deploy to Tomcat') {
+                    steps {
+                        sshagent (credentials: ['tomcat-ssh-key']) {
+                            sh '''
+                                echo "Deploying WAR to Tomcat server..."
+        
+                                WAR_FILE=$(ls sample-app/target/*.war)
+                                SERVER_IP=172.31.45.163
+                                SERVER_USER=ec2-user
+                                TOMCAT_DIR=/opt/tomcat/webapps
+        
+                                # Copy WAR file to /tmp first (where ubuntu has access)
+                                scp -o StrictHostKeyChecking=no $WAR_FILE $SERVER_USER@$SERVER_IP:/tmp/
+        
+                                # Move WAR into Tomcat webapps with sudo
+                                ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "sudo mv /tmp/$(basename $WAR_FILE) $TOMCAT_DIR/"
+        
+                                # Restart Tomcat service
+                                ssh -o StrictHostKeyChecking=no $SERVER_USER@$SERVER_IP "sudo systemctl restart tomcat"
+        
+                                echo "Deployment completed successfully!"
+                            '''
+                        }
+                    }
+                }
+            }
+        }
