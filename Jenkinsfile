@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/Kushbalaji/suprith_Jenkins_Assignment.git'
+                    url: 'https://github.com/NikithaGB/Java-mini-project-suprith.git'
             }
         }
 
@@ -63,7 +63,7 @@ pipeline {
                                 echo "Deploying WAR to Tomcat server..."
         
                                 WAR_FILE=$(ls sample-app/target/*.war)
-                                SERVER_IP=3.110.81.105
+                                SERVER_IP=43.205.139.242
                                 SERVER_USER=ec2-user
                                 TOMCAT_DIR=/opt/tomcat/webapps
         
