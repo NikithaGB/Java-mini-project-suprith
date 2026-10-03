@@ -4,7 +4,7 @@ pipeline {
     parameters {
         string(
             name: 'TOMCAT_IP',
-             choices: [
+            choices: [
             '43.205.139.242',
             '3.110.81.105'
             ],
