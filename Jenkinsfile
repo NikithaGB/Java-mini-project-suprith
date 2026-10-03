@@ -4,7 +4,6 @@ pipeline {
     parameters {
         string(
             name: 'TOMCAT_IP',
-            defaultValue: '43.205.139.242',
             description: 'Enter the Tomcat server IP address'
         )
     }
