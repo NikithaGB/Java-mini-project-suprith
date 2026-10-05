@@ -7,7 +7,6 @@ pipeline {
             defaultValue: '',
             description: 'Enter first Tomcat server IP'
         )
-
         string(
             name: 'TOMCAT_IP_2',
             defaultValue: '',
