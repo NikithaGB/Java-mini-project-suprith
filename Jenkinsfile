@@ -1,18 +1,26 @@
+properties([
+    parameters([
+        [$class: 'ChoiceParameterDefinition',
+         name: 'TOMCAT_IP',
+         choices: '15.206.117.178\n3.108.185.49',
+         description: 'Select the Tomcat server']
+    ])
+])
 pipeline {
     agent any
 
-    parameters {
-        string(
-            name: 'TOMCAT_IP_1',
-            defaultValue: '',
-            description: 'Enter first Tomcat server IP'
-        )
-        string(
-            name: 'TOMCAT_IP_2',
-            defaultValue: '',
-            description: 'Enter second Tomcat server IP'
-        )
-    }
+    // parameters {
+    //     string(
+    //         name: 'TOMCAT_IP_1',
+    //         defaultValue: '',
+    //         description: 'Enter first Tomcat server IP'
+    //     )
+    //     string(
+    //         name: 'TOMCAT_IP_2',
+    //         defaultValue: '',
+    //         description: 'Enter second Tomcat server IP'
+    //     )
+    // }
     
     tools {
         jdk 'JDK21'
