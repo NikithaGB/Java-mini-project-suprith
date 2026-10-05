@@ -3,9 +3,15 @@ pipeline {
 
     parameters {
         string(
-            name: 'TOMCAT_IP',
-            choices: '43.205.139.242\n3.110.81.105',
-            description: 'Enter the Tomcat server IP address'
+            name: 'TOMCAT_IP_1',
+            defaultValue: '',
+            description: 'Enter first Tomcat server IP'
+        )
+
+        string(
+            name: 'TOMCAT_IP_2',
+            defaultValue: '',
+            description: 'Enter second Tomcat server IP'
         )
     }
     
