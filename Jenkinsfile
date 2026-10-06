@@ -1,11 +1,11 @@
-properties([
-    parameters([
-        [$class: 'ChoiceParameterDefinition',
-         name: 'TOMCAT_IP',
-         choices: '15.206.117.178\n3.108.185.49',
-         description: 'Select the Tomcat server']
-    ])
-])
+// properties([
+//     parameters([
+//         [$class: 'ChoiceParameterDefinition',
+//          name: 'TOMCAT_IP',
+//          choices: '15.206.117.178\n3.108.185.49',
+//          description: 'Select the Tomcat server']
+//     ])
+// ])
 pipeline {
     agent any
 
