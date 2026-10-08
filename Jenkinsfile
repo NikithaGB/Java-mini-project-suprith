@@ -1,27 +1,5 @@
-// properties([
-//     parameters([
-//         [$class: 'ChoiceParameterDefinition',
-//          name: 'TOMCAT_IP',
-//          choices: '15.206.117.178\n3.108.185.49',
-//          description: 'Select the Tomcat server']
-//     ])
-// ])
-
 pipeline {
     agent any
-
-    // parameters {
-    //     string(
-    //         name: 'TOMCAT_IP_1',
-    //         defaultValue: '',
-    //         description: 'Enter first Tomcat server IP'
-    //     )
-    //     string(
-    //         name: 'TOMCAT_IP_2',
-    //         defaultValue: '',
-    //         description: 'Enter second Tomcat server IP'
-    //     )
-    // }
     
     tools {
         jdk 'JDK21'
@@ -85,7 +63,7 @@ pipeline {
                                 echo "Deploying WAR to Tomcat server..."
         
                                 WAR_FILE=$(ls sample-app/target/*.war)
-                                SERVER_IP=43.205.139.242
+                                SERVER_IP=3.6.37.84
                                 SERVER_USER=ec2-user
                                 TOMCAT_DIR=/opt/tomcat/webapps
         
